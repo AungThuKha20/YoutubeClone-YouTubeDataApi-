@@ -17,13 +17,15 @@ const Navbar = () => {
         <div className=" flex items-center  gap-1">
           <RiMenu3Fill
             onClick={handleOpen}
-            className=" cursor-pointer me-1 text-white text-[30px]"
+            className=" cursor-pointer me-1 text-white text-[20px]"
           />
 
           <Link to={"/"}>
             <div className=" flex items-center gap-1">
-              <SiYoutubeshorts className=" cursor-pointer  text-red-500 text-[40px] md:text-[50px]" />
-              <p className=" text-white  font-mono text-[22px]">PucciTube</p>
+              <SiYoutubeshorts className=" cursor-pointer  text-red-500 text-[20px] md:text-[30px]" />
+              <p className=" text-white font-semibold  font-mono text-[18px]">
+                PuciTube
+              </p>
             </div>
           </Link>
         </div>
@@ -31,9 +33,9 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className=" bg-gray-950 border text-gray-200 border-gray-800  px-4 rounded-s-full outline-none md:py-2 md:w-[25vw] w-[35vw] py-[4px]"
+            className=" bg-gray-950 border text-gray-200 border-gray-800  px-4 rounded-s-full outline-none md:py-2 md:w-[25vw] w-[30vw] py-[1px]"
           />
-          <button className=" px-2  md:px-4 rounded-e-full   bg-gray-800 md:py-2 py-[4px]">
+          <button className=" px-1  md:px-4 rounded-e-full   bg-gray-800 md:py-2 py-[1px]">
             <FaSearch className=" text-gray-600 me-1 transform scale-x-[-1]" />
           </button>
         </div>
@@ -57,7 +59,7 @@ const Navbar = () => {
           <div>
             <img
               src={profile}
-              className="  md:w-[45px] md:h-[45px] w-[40px] h-[40px] rounded-full"
+              className="  md:w-[45px] md:h-[45px] w-[40px] h-[40px] me-4 md:me-0 rounded-full"
               alt=""
             />
           </div>

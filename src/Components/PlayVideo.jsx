@@ -21,16 +21,16 @@ const PlayVideo = ({ id, video }) => {
   };
 
   return (
-    <div className=" flex md:justify-end justify-center  w-full  ">
-      <div className="  flex-col    md:me-4 me-0 ">
+    <div className=" flex md:justify-end justify-center  md:w-full w-screen   ">
+      <div className="  flex-col     md:me-4 me-0 ">
         <iframe
-          className=" mt-1 flex h-[60vh]  rounded-md md:h-[70vh] justify-center w-full md:w-[60vw]"
+          className=" mt-1 flex h-[50vh]  rounded-md md:h-[70vh] justify-center w-screen md:w-[60vw]"
           src={`https://www.youtube.com/embed/${id}?autoplay=1`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
-        <div className=" text-white md:mx-0 mx-2 mt-2">
+        <div className=" text-white md:w-full w-screen px-2 mt-2">
           <p className=" font-semibold text-[16px] ">{video.snippet.title}</p>
-          <div className="  ">
+          <div className="   ">
             <div className=" flex items-center mt-2 justify-between">
               <p className=" text-[8px] flex items-center  text-gray-400">
                 {viewConverter(video.statistics.viewCount)} views{" "}
