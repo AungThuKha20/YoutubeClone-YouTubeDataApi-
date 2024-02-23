@@ -59,7 +59,7 @@ const Navbar = () => {
           <div>
             <img
               src={profile}
-              className="  md:w-[45px] md:h-[45px] w-[40px] h-[40px] me-4 md:me-0 rounded-full"
+              className="  md:w-[35px] md:h-[35px] w-[30px] h-[30px] me-4 md:me-0 rounded-full"
               alt=""
             />
           </div>

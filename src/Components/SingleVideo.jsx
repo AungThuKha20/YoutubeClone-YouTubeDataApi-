@@ -15,10 +15,10 @@ const SingleVideo = () => {
     return item.id === id;
   });
 
-  console.log(filterSgVideo);
+  // console.log(filterSgVideo);
 
   return (
-    <div className=" md:flex flex-row flex-wrap w-full h-screen mt-[60px] md:mt-[80px] bg-black  text-white">
+    <div className=" md:flex flex-row flex-wrap w-full h-full mt-[60px] md:mt-[80px] bg-black  text-white">
       <div className=" w-[98vw] md:w-[70vw] h-full">
         {filterSgVideo.map((video, index) => {
           return <PlayVideo key={index} id={id} video={video} />;

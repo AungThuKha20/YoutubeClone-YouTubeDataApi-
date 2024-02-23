@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { api_key, viewConverter } from "../Services/data";
 import { LuDot } from "react-icons/lu";
 import moment from "moment";
@@ -9,6 +9,8 @@ import { BsClockHistory, BsThreeDots } from "react-icons/bs";
 const PlayVideo = ({ id, video }) => {
   // console.log(video);
   const formattedDate = moment(video.snippet.publishedAt).fromNow();
+  const [channel, setChannel] = useState(null);
+  const subscriber = viewConverter(channel?.statistics.subscriberCount);
   useEffect(() => {
     fetchChannel();
   }, []);
@@ -17,7 +19,8 @@ const PlayVideo = ({ id, video }) => {
       `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${video.snippet.channelId}&key=${api_key}`
     );
     const channelData = await api.json();
-    console.log(channelData.items);
+    console.log(channelData.items[0]);
+    setChannel(channelData.items[0]);
   };
 
   return (
@@ -29,39 +32,61 @@ const PlayVideo = ({ id, video }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
         <div className=" text-white md:w-full w-screen px-2 mt-2">
-          <p className=" font-semibold text-[16px] ">{video.snippet.title}</p>
+          <p className=" font-semibold text-[18px] ">{video.snippet.title}</p>
           <div className="   ">
-            <div className=" flex items-center mt-2 justify-between">
-              <p className=" text-[8px] flex items-center  text-gray-400">
+            <div className=" flex flex-wrap items-center mt-2 justify-between">
+              {/* <p className=" text-[8px] flex items-center  text-gray-400">
                 {viewConverter(video.statistics.viewCount)} views{" "}
                 <span>
                   <LuDot size={20} />
                 </span>
                 {formattedDate}
-              </p>
-              <div className=" flex  items-center  text-[4px] md:gap-4 gap-2">
+              </p> */}
+
+              {channel && (
+                <div className=" flex md:justify-start justify-between md:w-auto w-full items-center gap-2">
+                  <div className=" flex items-center gap-4">
+                    <img
+                      className=" h-[40px] w-[40px]    rounded-full"
+                      src={channel.snippet.thumbnails.high.url}
+                      alt=""
+                    />
+                    <div>
+                      <p className=" md:text-[14px] text-[10px] font-medium">
+                        {channel.snippet.title}
+                      </p>
+                      <p className=" text-[2px] text-gray-400">
+                        {subscriber}
+                        <span className="   ms-1">Subscribers</span>
+                      </p>
+                    </div>
+                  </div>
+                  <button className=" text-[1px] px-3 py-[1px] ms-2 font-semibold hover:bg-gray-300 bg-white text-black rounded-full">
+                    Subscribe
+                  </button>
+                </div>
+              )}
+
+              <div className=" flex  items-center justify-start w-full md:w-auto md:mt-0 mt-3 text-[4px] md:gap-4 gap-6">
                 <div className=" flex  ">
-                  <button className=" border-e  border-gray-600 hidden md:flex items-center rounded-s-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
+                  <button className=" border-e  border-gray-600 flex items-center rounded-s-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
                     <AiFillLike size={15} />{" "}
                     <span className=" ms-2">
                       {viewConverter(video.statistics.likeCount)}
                     </span>
                   </button>
 
-                  <button className=" hidden items-center md:flex rounded-e-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
+                  <button className="  items-center flex rounded-e-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
                     <AiFillDislike size={15} />{" "}
                   </button>
                 </div>
-                <button className=" hidden md:flex items-center bg-gray-900 hover:bg-gray-800 px-4 rounded-full py-[1px]">
+                <button className=" flex items-center bg-gray-900 hover:bg-gray-800 px-4 rounded-full py-[1px]">
                   <IoMdShareAlt className=" me-1" size={15} />
                   Share
                 </button>
-                <button className=" hidden md:flex items-center bg-gray-900 hover:bg-gray-800 px-4 rounded-full py-[1px]">
+                <button className=" flex items-center bg-gray-900 hover:bg-gray-800 px-4 rounded-full py-[1px]">
                   <HiSave className=" me-1" size={15} />
                   Save
-                </button>
-                <button className=" flex md:me-0 me-3 items-center justify-center bg-gray-900 hover:bg-gray-800 rounded-full px-2 py-2">
-                  <BsThreeDots className=" " size={12} />
                 </button>
               </div>
             </div>
