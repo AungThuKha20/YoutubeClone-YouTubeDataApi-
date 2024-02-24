@@ -6,8 +6,9 @@ import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { IoMdShareAlt } from "react-icons/io";
 import { HiSave } from "react-icons/hi";
 import { BsClockHistory, BsThreeDots } from "react-icons/bs";
+import CommentSection from "./CommentSection";
 const PlayVideo = ({ id, video }) => {
-  console.log(video);
+  // console.log(video);
   const [more, setMore] = useState(false);
   const moreHandler = () => {
     setMore(!more);
@@ -25,7 +26,7 @@ const PlayVideo = ({ id, video }) => {
     );
     const channelData = await api.json();
 
-    console.log(channelData.items[0]);
+    // console.log(channelData.items[0]);
     setChannel(channelData.items[0]);
   };
 
@@ -116,6 +117,7 @@ const PlayVideo = ({ id, video }) => {
                 </p>
               </div>
             </div>
+            <CommentSection id={id} video={video} />
           </div>
         </div>
       </div>
