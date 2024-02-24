@@ -51,7 +51,7 @@ const PlayVideo = ({ id, video }) => {
                       alt=""
                     />
                     <div>
-                      <p className=" md:text-[16px] text-[10px] font-medium">
+                      <p className=" text-[16px]  font-medium">
                         {channel.snippet.title}
                       </p>
                       <p className=" text-[14px] text-gray-400">
@@ -96,7 +96,7 @@ const PlayVideo = ({ id, video }) => {
                 </p>
                 <p className=" font-semibold">{formattedDate}</p>
                 <div className="flex text-gray-400 font-semibold items-center gap-2">
-                  {video.snippet.tags?.slice(0, 3).map((tag, index) => (
+                  {video.snippet.tags?.slice(0, 2).map((tag, index) => (
                     <p key={index}>#{tag}</p>
                   ))}
                 </div>

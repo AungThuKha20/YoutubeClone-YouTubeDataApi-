@@ -6,7 +6,7 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
-
+  const [cmtMore, setCmtMore] = useState(false);
   const { category } = useContext(SidebarContext);
   useEffect(() => {
     fetchData();

@@ -47,7 +47,7 @@ const CommentSection = ({ id, video }) => {
           className=" w-full text-[14px] border-b-[1px] border-gray-400 bg-black outline-none"
         />
       </div>
-      <div>
+      <div className=" ">
         {data?.map((item, index) => {
           return <Comment key={index} item={item} />;
         })}
