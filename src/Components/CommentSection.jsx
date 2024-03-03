@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { api_key } from "../Services/data";
 import { MdSort } from "react-icons/md";
 import pf from "../assets/pf.png";
 import Comment from "./Comment";
+import { DataContext } from "../Context/DataContext";
 const CommentSection = ({ id, video }) => {
+  const { cmtMore, setCmtMore } = useContext(DataContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetchData();
@@ -35,7 +37,7 @@ const CommentSection = ({ id, video }) => {
           </div>
         </div>
       </div>
-      <div className=" mt-2 mb-2 flex gap-2 items-center">
+      <div className=" mt-2  mb-2 flex gap-2 items-center">
         <img
           src={pf}
           className="  h-[40px]  w-[40px] top-[-20px]  rounded-full"
@@ -47,10 +49,23 @@ const CommentSection = ({ id, video }) => {
           className=" w-full text-[14px] border-b-[1px] border-gray-400 bg-black outline-none"
         />
       </div>
-      <div className=" ">
+      <div className=" hidden md:block ">
         {data?.map((item, index) => {
           return <Comment key={index} item={item} />;
         })}
+      </div>
+      <div className="  md:hidden block">
+        <button
+          onClick={() => setCmtMore(!cmtMore)}
+          className="text-[14px] underline text-blue-500"
+        >
+          {!cmtMore ? "More Comments" : "Less comments..."}
+        </button>
+        {cmtMore
+          ? data?.map((item, index) => <Comment key={index} item={item} />)
+          : data
+              ?.slice(0, 1)
+              .map((item, index) => <Comment key={index} item={item} />)}
       </div>
     </div>
   );

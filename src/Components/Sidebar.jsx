@@ -140,7 +140,7 @@ const Sidebar = () => {
               <p
                 className={` ${
                   isOpen && "md:mx-auto"
-                } text-gray-300    text-[30px]`}
+                } text-yellow-100    text-[30px]`}
               >
                 {item.icon}
               </p>

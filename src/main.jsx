@@ -7,11 +7,11 @@ import SidebarProvider from "./Context/SidebarContext.jsx";
 import DataProvider from "./Context/DataContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <SidebarProvider>
-    <DataProvider>
-      <BrowserRouter>
+  <BrowserRouter>
+    <SidebarProvider>
+      <DataProvider>
         <App />
-      </BrowserRouter>
-    </DataProvider>
-  </SidebarProvider>
+      </DataProvider>
+    </SidebarProvider>
+  </BrowserRouter>
 );

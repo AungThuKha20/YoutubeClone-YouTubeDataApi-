@@ -3,20 +3,20 @@ import React from "react";
 import { BiLike, BiDislike } from "react-icons/bi";
 
 const Comment = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const formattedDate = moment(
     item.snippet.topLevelComment.snippet.updatedAt
   ).fromNow();
   return (
-    <div className="  flex gap-3 items-center mt-3">
-      <div>
+    <div className="  flex gap-3  mt-3">
+      <div className=" w-[50px] ">
         <img
           src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}
           className=" w-[40px] h-[40px] rounded-full"
           alt=""
         />
       </div>
-      <div>
+      <div className=" w-full ">
         <div className=" flex items-center gap-2">
           <p className=" text-[14px]">
             {item.snippet.topLevelComment.snippet.authorDisplayName}
