@@ -21,9 +21,10 @@ const FeedVideos = (item) => {
         <img
           className={` ${
             isOpen
-              ? "md:w-[400px] lg:w-[330px] w-screen mt-0 h-[200px] "
-              : "md:w-[400px] lg:w-[400px] w-screen mt-0 h-[220px] "
-          } group-hover:scale-105 transition-all duration-200     object-cover  `}
+              ? "md:w-[400px] lg:w-[330px] w-screen mt-0  "
+              : "md:w-[400px] lg:w-[400px] w-screen mt-0  "
+          } group-hover:scale-105 transition-all duration-200 
+          h-[220px]     object-cover  `}
           src={item.snippet.thumbnails.high.url}
           alt=""
         />

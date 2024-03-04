@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { DataContext } from "../Context/DataContext";
 
 import PlayVideo from "./PlayVideo";
 import Recommend from "./Recommend";
@@ -8,21 +7,29 @@ import { api_key } from "../Services/data";
 
 const SingleVideo = () => {
   const { categoryID, id } = useParams();
-  const { data } = useContext(DataContext);
-  const [recommendVd, setRecommendVd] = useState(null);
 
-  // console.log(id);
+  const [recommendVd, setRecommendVd] = useState(null);
+  const [sgVideo, setSgVideo] = useState(null);
   // console.log(data);
   // console.log(categoryID);
 
-  const filterSgVideo = data.filter((item) => {
-    return item.id === id;
-  });
+  useEffect(() => {
+    fetchSgVideo();
+  }, []);
 
+  const fetchSgVideo = async () => {
+    const sg = await fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${api_key} `
+    );
+    const sgVd = await sg.json();
+    setSgVideo(sgVd.items);
+  };
+
+  console.log(id);
   // console.log(filterSgVideo);
   useEffect(() => {
     fetchRecommend();
-  }, [categoryID]);
+  }, [id]);
   const fetchRecommend = async () => {
     const api = await fetch(
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&videoCategoryId=${categoryID}&key=${api_key} `
@@ -35,7 +42,7 @@ const SingleVideo = () => {
   return (
     <div className=" md:flex flex-row  w-full h-full mt-[60px] md:mt-[80px] bg-black  text-white">
       <div className=" w-[98vw] md:w-[70vw] h-full">
-        {filterSgVideo.map((video, index) => {
+        {sgVideo?.map((video, index) => {
           return <PlayVideo key={index} id={id} video={video} />;
         })}
       </div>

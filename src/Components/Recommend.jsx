@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LuDot } from "react-icons/lu";
 import { api_key, viewConverter } from "../Services/data";
+import { DataContext } from "../Context/DataContext";
 
 const Recommend = ({ vd }) => {
-  console.log(vd);
-
+  // console.log(vd);
+  // const { vdId, setVdId } = useContext(DataContext);
   const currentPath = "singlevideo";
 
   const formattedDate = moment(vd.snippet.publishedAt).fromNow();
@@ -23,13 +24,14 @@ const Recommend = ({ vd }) => {
     // console.log(data.items[0]);
     setChannel(data.items[0]);
   };
+  // setVdId(vd.Id);
   const resetPathway = () => {
     // Replace the current pathname with the base URL
     window.location.replace(
       `http://localhost:5173/${currentPath}/${vd.snippet.categoryId}/${vd.id}`
     );
   };
-  console.log(channel);
+  // console.log(channel);
   return (
     <Link
       to={`${currentPath}/${vd.snippet.categoryId}/${vd.id}`}

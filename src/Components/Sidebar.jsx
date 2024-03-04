@@ -13,7 +13,12 @@ import angerfist from "../assets/AngerFist.jpg";
 import linkinpark from "../assets/Linkinpark.jpg";
 
 const Sidebar = () => {
-  const { category, setCategory, isOpen } = useContext(SidebarContext);
+  const { category, setCategory, isOpen, setIsOpen } =
+    useContext(SidebarContext);
+  const handleSideBar = (id) => {
+    setCategory(id);
+    setIsOpen(false);
+  };
   const menu = [
     {
       id: 1,
@@ -132,7 +137,8 @@ const Sidebar = () => {
         return (
           <div key={item.id}>
             <button
-              onClick={() => setCategory(item.categoryID)}
+              // onClick={() => setCategory(item.categoryID)}
+              onClick={() => handleSideBar(item.categoryID)}
               className={` ${isOpen && " flex"} 
             ${item.categoryID === category && " bg-gray-900"}
             cursor-pointer  hover:bg-gray-800 text-[15px] rounded-md w-full my-1 transition-all duration-200 px-2 py-1  flex items-center  gap-4`}

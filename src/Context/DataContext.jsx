@@ -8,6 +8,7 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [cmtMore, setCmtMore] = useState(false);
   const { category } = useContext(SidebarContext);
+  const [vdId, setVdId] = useState({});
   useEffect(() => {
     fetchData();
   }, [category]);
@@ -22,7 +23,7 @@ const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={{ data, cmtMore, setCmtMore }}>
+    <DataContext.Provider value={{ data, cmtMore, setCmtMore, vdId, setVdId }}>
       {children}
     </DataContext.Provider>
   );
