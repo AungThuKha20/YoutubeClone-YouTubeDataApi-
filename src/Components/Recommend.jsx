@@ -8,7 +8,6 @@ import { DataContext } from "../Context/DataContext";
 const Recommend = ({ vd }) => {
   // console.log(vd);
   // const { vdId, setVdId } = useContext(DataContext);
-  const currentPath = "singlevideo";
 
   const formattedDate = moment(vd.snippet.publishedAt).fromNow();
   const view = viewConverter(vd.statistics.viewCount);
@@ -25,18 +24,15 @@ const Recommend = ({ vd }) => {
     setChannel(data.items[0]);
   };
   // setVdId(vd.Id);
-  const resetPathway = () => {
-    // Replace the current pathname with the base URL
-    window.location.replace(
-      `http://localhost:5173/${currentPath}/${vd.snippet.categoryId}/${vd.id}`
-    );
-  };
+  // const resetPathway = () => {
+  //   // Replace the current pathname with the base URL
+  //   window.location.replace(
+  //     `http://localhost:5173/${currentPath}/${vd.snippet.categoryId}/${vd.id}`
+  //   );
+  // };
   // console.log(channel);
   return (
-    <Link
-      to={`${currentPath}/${vd.snippet.categoryId}/${vd.id}`}
-      onClick={resetPathway}
-    >
+    <Link to={`/singlevideo/${vd.snippet.categoryId}/${vd.id}`}>
       <div className=" md:flex items-center  group gap-2 md:mt-4 cursor-pointer mt-4 md:h-[90px]  h-full w-full">
         <div className=" md:w-[30vw] w-screen">
           <img
