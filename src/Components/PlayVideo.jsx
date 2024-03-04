@@ -31,7 +31,7 @@ const PlayVideo = ({ id, video }) => {
   };
 
   return (
-    <div className=" flex md:justify-end justify-center  md:w-full w-screen   ">
+    <div className="  flex md:justify-end justify-center  md:w-full w-screen   ">
       <div className="  flex-col  md:w-[60vw] w-screen    md:me-4 me-0 ">
         <iframe
           className=" mt-1 flex h-[40vh]  rounded-md md:h-[70vh] justify-center w-screen md:w-[60vw]"

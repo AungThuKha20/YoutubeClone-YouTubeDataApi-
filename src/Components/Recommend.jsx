@@ -5,10 +5,13 @@ import { LuDot } from "react-icons/lu";
 import { api_key, viewConverter } from "../Services/data";
 import { DataContext } from "../Context/DataContext";
 
-const Recommend = ({ vd }) => {
+const Recommend = ({ vd, scrollToTop }) => {
   // console.log(vd);
   // const { vdId, setVdId } = useContext(DataContext);
-
+  const handleClick = () => {
+    scrollToTop();
+    // Add any other functionality you need
+  };
   const formattedDate = moment(vd.snippet.publishedAt).fromNow();
   const view = viewConverter(vd.statistics.viewCount);
   const [channel, setChannel] = useState(null);
@@ -32,7 +35,10 @@ const Recommend = ({ vd }) => {
   // };
   // console.log(channel);
   return (
-    <Link to={`/singlevideo/${vd.snippet.categoryId}/${vd.id}`}>
+    <Link
+      to={`/singlevideo/${vd.snippet.categoryId}/${vd.id}`}
+      onClick={handleClick}
+    >
       <div className=" md:flex items-center  group gap-2 md:mt-4 cursor-pointer mt-4 md:h-[90px]  h-full w-full">
         <div className=" md:w-[30vw] w-screen">
           <img
