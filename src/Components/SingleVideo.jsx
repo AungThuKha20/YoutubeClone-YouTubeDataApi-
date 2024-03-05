@@ -9,7 +9,7 @@ const SingleVideo = () => {
   const playVideoRef = useRef();
 
   const scrollToPlayVideoTop = () => {
-    playVideoRef.current.scrollToTop({ behavior: "smooth" });
+    playVideoRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const [recommendVd, setRecommendVd] = useState(null);
