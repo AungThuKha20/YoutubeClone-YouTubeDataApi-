@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { api_key, viewConverter } from "../Services/data";
 import { LuDot } from "react-icons/lu";
 import moment from "moment";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { AiFillLike } from "react-icons/ai";
 import { IoMdShareAlt } from "react-icons/io";
 import { HiSave } from "react-icons/hi";
-import { BsClockHistory, BsThreeDots } from "react-icons/bs";
+import { BiDislike } from "react-icons/bi";
+
 import CommentSection from "./CommentSection";
 const PlayVideo = ({ id, video }) => {
   // console.log(video);
@@ -76,7 +77,7 @@ const PlayVideo = ({ id, video }) => {
                   </button>
 
                   <button className="  items-center flex rounded-e-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
-                    <AiFillDislike size={15} />{" "}
+                    <BiDislike size={15} />{" "}
                   </button>
                 </div>
                 <button className=" flex items-center bg-gray-900 hover:bg-gray-800 px-4 rounded-full py-[1px]">

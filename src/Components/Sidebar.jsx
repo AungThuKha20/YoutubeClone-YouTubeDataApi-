@@ -11,6 +11,10 @@ import { SidebarContext } from "../Context/SidebarContext";
 import Riotshift from "../assets/riotshift.jpg";
 import angerfist from "../assets/AngerFist.jpg";
 import linkinpark from "../assets/Linkinpark.jpg";
+import terror from "../assets/terrorBass.jpg";
+import poe from "../assets/PoeGyi.jpg";
+import mms from "../assets/MMS.jpg";
+import oftr from "../assets/OFTR.jpg";
 
 const Sidebar = () => {
   const { category, setCategory, isOpen, setIsOpen } =
@@ -127,6 +131,21 @@ const Sidebar = () => {
       id: 30,
       name: "Linkin Park",
       image: linkinpark
+    },
+    {
+      id: 40,
+      name: "TERROR BASS",
+      image: terror
+    },
+    {
+      id: 60,
+      name: "Poe Gyi",
+      image: poe
+    },
+    {
+      id: 70,
+      name: "MMSIT",
+      image: mms
     }
   ];
   // https:youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&mine=true&key=[YOUR_API_KEY]
