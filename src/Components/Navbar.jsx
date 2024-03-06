@@ -28,7 +28,7 @@ const Navbar = () => {
                 className=" h-[30px] md:h-[35px] md:w-[35px] w-[30px]"
                 alt=""
               />
-              <p className="font-semibold  font-mono text-[18px] md:text-[19px] bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-yellow-300 to-white inline-block">
+              <p className="font-semibold  font-mono text-[14px] md:text-[19px] bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-yellow-300 to-white inline-block">
                 PuciTube
               </p>
             </div>
