@@ -67,7 +67,7 @@ const PlayVideo = ({ id, video }) => {
                 </div>
               )}
 
-              <div className=" flex  items-center justify-start w-full md:w-auto md:mt-0 mt-3 text-[16px] md:gap-4 gap-6">
+              <div className=" flex  items-center justify-start w-full md:w-auto md:mt-0 mt-3 text-[14px] md:text-[16px] md:gap-4 gap-6">
                 <div className=" flex  ">
                   <button className=" border-e  border-gray-600 flex items-center rounded-s-full hover:bg-gray-800 bg-gray-900 px-2 py-[1px]">
                     <AiFillLike size={15} />{" "}
