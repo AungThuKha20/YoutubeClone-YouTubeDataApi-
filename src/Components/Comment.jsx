@@ -9,7 +9,7 @@ const Comment = ({ item }) => {
   ).fromNow();
   return (
     <div className="  flex gap-3  mt-3">
-      <div className=" w-[50px] ">
+      <div className=" w-[50px] ms-1 ">
         <img
           src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}
           className=" w-[40px] h-[40px] rounded-full"

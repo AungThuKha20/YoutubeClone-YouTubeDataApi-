@@ -20,7 +20,7 @@ const PlayVideo = ({ id, video }) => {
   const subscriber = viewConverter(channel?.statistics.subscriberCount);
   useEffect(() => {
     fetchChannel();
-  }, []);
+  }, [video.snippet.channelId]);
   const fetchChannel = async () => {
     const api = await fetch(
       `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${video.snippet.channelId}&key=${api_key}`

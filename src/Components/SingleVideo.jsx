@@ -24,6 +24,7 @@ const SingleVideo = () => {
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${api_key} `
     );
     const sgVd = await sg.json();
+    console.log(sgVd.items[0]);
     setSgVideo(sgVd.items);
   };
 
@@ -46,6 +47,7 @@ const SingleVideo = () => {
           return <PlayVideo key={index} id={id} video={video} />;
         })}
       </div>
+
       <div className="w-[98vw] md:w-[30vw] h-full">
         {recommendVd &&
           recommendVd?.map((vd, index) => {

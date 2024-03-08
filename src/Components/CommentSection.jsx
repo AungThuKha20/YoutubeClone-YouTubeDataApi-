@@ -9,7 +9,7 @@ const CommentSection = ({ id, video }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   const fetchData = async () => {
     const api = await fetch(
