@@ -10,7 +10,6 @@ const Recommend = ({ vd, scrollToTop }) => {
   // const { vdId, setVdId } = useContext(DataContext);
   const handleClick = () => {
     scrollToTop();
-    // Add any other functionality you need
   };
   const formattedDate = moment(vd.snippet.publishedAt).fromNow();
   const view = viewConverter(vd.statistics.viewCount);
